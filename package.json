@@ -1,0 +1,15 @@
+{
+  "name": "rxjs-playground",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "webpack-dev-server --content-base build/"
+  },
+  "devDependencies": {
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.5.1"
+  },
+  "dependencies": {
+    "react": "^15.6.1",
+    "redux": "^3.7.2"
+  }
+}
