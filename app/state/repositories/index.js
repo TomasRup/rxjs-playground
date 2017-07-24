@@ -12,11 +12,10 @@ const repositories = (state = [], { type, payload }) => {
 
 const searchRepositories = payload => ({ type: SEARCH_REPOSITORIES, payload: payload });
 
-const searchRepositories$ = () => Observable.fromPromise(githubApi.searchRepositories(payload))
-
 const searchRepositoriesEpic = (action$, store, { githubApi }) => action$
     .filter(action => action.type === SEARCH_REPOSITORIES)
     .switchMap(({ payload }) => {
+        if (!payload) return Observable.empty();
         return Observable
             .fromPromise(githubApi.searchRepositories(payload))
             .map(response => {

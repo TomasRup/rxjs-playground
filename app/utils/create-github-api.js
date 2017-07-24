@@ -5,7 +5,6 @@ export default () => {
     const BASE_PATH = 'https://api.github.com';
 
     const DEFAULT_HEADERS = {
-        'Accept': 'application/vnd.github.v3+json',
         'Origin': 'http://localhost',
     }
 
