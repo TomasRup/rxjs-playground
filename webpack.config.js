@@ -9,7 +9,16 @@ module.exports = {
     filename: "bundle.js"
   },
   devServer: {
-    headers: { "Access-Control-Allow-Origin": "*" }
+    proxy: {
+      "/api": {
+        target: "http://universities.hipolabs.com:80",
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
   },
   module: {
     loaders: [

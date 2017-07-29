@@ -20,14 +20,15 @@ class Demo extends Component {
   }
 
   renderReduxObservableExample() {
+    const { universities, universityActions, uiActions } = this.props;
     return <ReduxObservableExample
-      repositories={repositories}
-      searchRepositories={repositoryActions.searchRepositories}
+      universities={universities}
+      searchUniversities={universityActions.searchUniversities}
+      moveMouse={uiActions.moveMouse}
       />
   }
 
   render() {
-    const { repositories, repositoryActions } = this.props;
     return (
       <div>
         {/* {this.renderCreatingObservables(1)} */}
@@ -39,16 +40,17 @@ class Demo extends Component {
 };
 
 Demo.propTypes = {
-  repositoryActions: PropTypes.object.isRequired,
-  repositories: PropTypes.array.isRequired
+  universityActions: PropTypes.object.isRequired,
+  universities: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => ({
-  repositories: state.repositories
+  universities: state.universities
 });
 
 const mapDispatchToProps = dispatch => ({
-  repositoryActions: bindActionCreators(actions.repository, dispatch)
+  universityActions: bindActionCreators(actions.university, dispatch),
+  uiActions: bindActionCreators(actions.ui, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Demo);

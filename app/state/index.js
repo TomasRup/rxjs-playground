@@ -1,25 +1,28 @@
+import 'whatwg-fetch';
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { combineEpics, createEpicMiddleware } from 'redux-observable';
+import { ajax } from 'rxjs/observable/dom/ajax';
 
+import { actions as uiActions } from './ui';
 import {
-  actions as repositoriesActions,
-  reducers as repositories,
-  epics as repositoriesEpics
-} from './repositories';
-import createGithubApi from '../utils/create-github-api';
+  actions as universityActions,
+  reducers as universities,
+  epics as universityEpics
+} from './universities';
 
 
 const reducers = combineReducers({
-  repositories
+  universities,
 });
 
-const dependencies = {
-  githubApi: createGithubApi()
-};
-
 const epics = [
-  repositoriesEpics
+  universityEpics,
 ];
+
+const dependencies = {
+  getObservable: ajax.getJSON,
+  getPromise: fetch,
+};
 
 const middlewares = [
   createEpicMiddleware(combineEpics(...epics), { dependencies })
@@ -28,5 +31,6 @@ const middlewares = [
 export const store = createStore(reducers, applyMiddleware(...middlewares));
 
 export const actions = {
-  repository: repositoriesActions
+  university: universityActions,
+  ui: uiActions,
 };

@@ -37,6 +37,17 @@ class ObservablePowerFeatures extends Component {
     3) switchMap: http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-switchMap
   */
   initCase1() {
+    const windowClick$ = Observable.fromEvent(window, 'click');
+    const fiveSeconds$ = Observable.interval(1000).take(5);
+    windowClick$
+      .flatMap(() => fiveSeconds$)
+      .subscribe(console.log);
+  }
+
+  /*
+    mergeMap (flatMap) / concatMap / switchMap different scenario
+  */
+  initCase2() {
     const textEnter$ = Observable.fromEvent(document.querySelector('#super-input'), 'keyup');
     textEnter$
       .mergeMap(event => {
@@ -54,19 +65,19 @@ class ObservablePowerFeatures extends Component {
     1) .window(event) -> switch, like: split -> join
     2) .windowCount(2)
   */
-  initCase2() {
-    const timer$ = Observable.interval(2000)
+  initCase3() {
+    const timer$ = Observable.interval(2000);
     const textEnter$ = Observable.fromEvent(document.querySelector('#super-input'), 'keyup');
 
     textEnter$
       .window(timer$) // -> observable of windows
-      .map(textEnterings$ => textEnterings$.toArray()) // window -> observable[t<observable>]
-      .switch() // emits items from recent (flat)
-      .map(events => events.map(e => e.code))
+      // .windowCount(2)
+      .switchMap(textEnterings$ => textEnterings$.toArray())
+      .map(events => events.map(e => e.key))
       .subscribe(console.log);
   }
 
-  initCase3() {
+  initCase4() {
     const getUserByQuery = query => this.returnAfterRandomTime({ name: query });
     const textEnter$ = Observable.fromEvent(document.querySelector('#super-input'), 'keyup');
 
