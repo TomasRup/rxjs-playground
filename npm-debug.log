@@ -1,0 +1,83 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/tomasr/.nvm/versions/node/v6.10.0/bin/node',
+1 verbose cli   '/Users/tomasr/.nvm/versions/node/v6.10.0/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'lodash' ]
+2 info using npm@3.10.10
+3 info using node@v6.10.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData lodash
+8 silly fetchNamedPackageData lodash
+9 silly mapToRegistry name lodash
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'lodash',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'lodash',
+12 silly mapToRegistry   name: 'lodash',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/lodash
+14 verbose request uri https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/lodash
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 9:13:49 PM
+17 verbose request id 891af4cf29ecf906
+18 http request GET https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/lodash
+19 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 10.42.124.156:443
+20 info attempt registry request try #2 at 9:15:15 PM
+21 http request GET https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/lodash
+22 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 10.42.124.156:443
+23 info attempt registry request try #3 at 9:17:31 PM
+24 http request GET https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/lodash
+25 silly get cb [ 304, undefined ]
+26 silly fetchPackageMetaData Error: failed to fetch from registry: https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/lodash
+26 silly fetchPackageMetaData     at /Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/lib/cache/caching-client.js:164:27
+26 silly fetchPackageMetaData     at /Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/lib/cache/caching-client.js:53:8
+26 silly fetchPackageMetaData     at f (/Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/node_modules/once/once.js:25:25)
+26 silly fetchPackageMetaData     at /Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:89:10
+26 silly fetchPackageMetaData     at /Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:103:12
+26 silly fetchPackageMetaData     at f (/Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/node_modules/once/once.js:25:25)
+26 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (/Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:224:20)
+26 silly fetchPackageMetaData     at Request._callback (/Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:201:20)
+26 silly fetchPackageMetaData     at self.callback (/Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/node_modules/request/request.js:187:22)
+26 silly fetchPackageMetaData     at emitOne (events.js:101:20)
+26 silly fetchPackageMetaData  error for lodash Error: failed to fetch from registry: https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/lodash
+26 silly fetchPackageMetaData     at /Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/lib/cache/caching-client.js:164:27
+26 silly fetchPackageMetaData     at /Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/lib/cache/caching-client.js:53:8
+26 silly fetchPackageMetaData     at f (/Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/node_modules/once/once.js:25:25)
+26 silly fetchPackageMetaData     at /Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:89:10
+26 silly fetchPackageMetaData     at /Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:103:12
+26 silly fetchPackageMetaData     at f (/Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/node_modules/once/once.js:25:25)
+26 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (/Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:224:20)
+26 silly fetchPackageMetaData     at Request._callback (/Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:201:20)
+26 silly fetchPackageMetaData     at self.callback (/Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/node_modules/request/request.js:187:22)
+26 silly fetchPackageMetaData     at emitOne (events.js:101:20)
+27 silly rollbackFailedOptional Starting
+28 silly rollbackFailedOptional Finishing
+29 silly runTopLevelLifecycles Finishing
+30 silly install printInstalled
+31 verbose stack Error: failed to fetch from registry: https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/lodash
+31 verbose stack     at /Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/lib/cache/caching-client.js:164:27
+31 verbose stack     at /Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/lib/cache/caching-client.js:53:8
+31 verbose stack     at f (/Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/node_modules/once/once.js:25:25)
+31 verbose stack     at /Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:89:10
+31 verbose stack     at /Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:103:12
+31 verbose stack     at f (/Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/node_modules/once/once.js:25:25)
+31 verbose stack     at CachingRegistryClient.<anonymous> (/Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:224:20)
+31 verbose stack     at Request._callback (/Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:201:20)
+31 verbose stack     at self.callback (/Users/tomasr/.nvm/versions/node/v6.10.0/lib/node_modules/npm/node_modules/request/request.js:187:22)
+31 verbose stack     at emitOne (events.js:101:20)
+32 verbose cwd /Users/tomasr/Development/rxjs-playground
+33 error Darwin 16.6.0
+34 error argv "/Users/tomasr/.nvm/versions/node/v6.10.0/bin/node" "/Users/tomasr/.nvm/versions/node/v6.10.0/bin/npm" "install" "--save" "lodash"
+35 error node v6.10.0
+36 error npm  v3.10.10
+37 error failed to fetch from registry: https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/lodash
+38 error If you need help, you may report this error at:
+38 error     <https://github.com/npm/npm/issues>
+39 verbose exit [ 1, true ]
