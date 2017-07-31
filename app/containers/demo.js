@@ -31,9 +31,9 @@ class Demo extends Component {
   render() {
     return (
       <div>
-        {/* {this.renderCreatingObservables(1)} */}
+        {this.renderCreatingObservables(1)}
         {/* {this.renderObservablePowerFeatures(1)} */}
-        {this.renderReduxObservableExample()}
+        {/* {this.renderReduxObservableExample()} */}
       </div>
     );
   }

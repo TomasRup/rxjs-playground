@@ -4,8 +4,6 @@ import { combineEpics } from 'redux-observable';
 import { RECEIVED_UNIVERSITIES, SEARCH_UNIVERSITIES, MOVE_MOUSE } from '../action-types';
 
 
-const HOSTNAME = '//localhost:8080/api'
-
 const universities = (state = [], { type, payload }) => {
   switch (type) {
     case RECEIVED_UNIVERSITIES:
@@ -26,7 +24,7 @@ const searchUniversitiesEpic = (action$, store, { getPromise, getObservable }) =
   .filter(action => action.type === SEARCH_UNIVERSITIES && action.payload)
   // .delay(2000)
   // .throttleTime(1000)
-  .switchMap(({ payload }) => getObservable(`${HOSTNAME}/search?name=${payload}`).map(universityToAction))
+  .switchMap(({ payload }) => getObservable(`//localhost:8080/api/search?name=${payload}`).map(universityToAction))
   // .switchMap(({ payload }) => Observable.fromPromise(getPromise(`${HOSTNAME}/search?name=${payload}`).then(res => res.json())).map(universityToAction))
   .catch(err => {
     console.error(err); // we can retry!

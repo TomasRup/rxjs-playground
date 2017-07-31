@@ -25,10 +25,16 @@ const dependencies = {
 };
 
 const middlewares = [
-  createEpicMiddleware(combineEpics(...epics), { dependencies })
+  createEpicMiddleware(
+    combineEpics(...epics),
+    { dependencies }
+  )
 ];
 
-export const store = createStore(reducers, applyMiddleware(...middlewares));
+export const store = createStore(
+  reducers,
+  applyMiddleware(...middlewares)
+);
 
 export const actions = {
   university: universityActions,
