@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { combineEpics } from 'redux-observable';
 
-import { RECEIVED_UNIVERSITIES, SEARCH_UNIVERSITIES, MOVE_MOUSE } from '../action-types';
+import { RECEIVED_UNIVERSITIES, SEARCH_UNIVERSITIES } from '../action-types';
 
 
 const universities = (state = [], { type, payload }) => {
@@ -31,20 +31,9 @@ const searchUniversitiesEpic = (action$, store, { getPromise, getObservable }) =
     return Observable.empty();
   });
 
-const nervousUserEpic = action$ => action$
-  .ofType(MOVE_MOUSE)
-  // .windowCount(100).skip(1)
-  .bufferCount(100)
-  .map(() => {
-    console.log('User is getting nervous...')
-    return Observable.empty();
-  })
-  .switch();
-
 export const actions = { searchUniversities };
 export const reducers = universities;
 export const epics = combineEpics(
   searchUniversitiesEpic,
   emptyUniversitiesSearchEpic,
-  nervousUserEpic,
 );

@@ -3,7 +3,10 @@ import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { combineEpics, createEpicMiddleware } from 'redux-observable';
 import { ajax } from 'rxjs/observable/dom/ajax';
 
-import { actions as uiActions } from './ui';
+import {
+  actions as uiActions,
+  epics as uiEpics,
+} from './ui';
 import {
   actions as universityActions,
   reducers as universities,
@@ -15,19 +18,18 @@ const reducers = combineReducers({
   universities,
 });
 
-const epics = [
-  universityEpics,
-];
-
-const dependencies = {
-  getObservable: ajax.getJSON,
-  getPromise: fetch,
-};
-
 const middlewares = [
   createEpicMiddleware(
-    combineEpics(...epics),
-    { dependencies }
+    combineEpics(
+      universityEpics,
+      uiEpics
+    ),
+    {
+      dependencies: {
+        getObservable: ajax.getJSON,
+        getPromise: fetch,
+      }
+    }
   )
 ];
 
